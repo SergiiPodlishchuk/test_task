@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack Starter Kit</title>
 
-    <!-- Don't forget to delete this style tag. -->
-    <style>
-      body {
-        min-height: 100vh;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>test_task_metrabit</title>
+</head>
 
-      .intro {
-        text-align: center;
-      }
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title_list_toDo">To Do List</h1>
+      <ul class="list_sum_todo">
+        <li class="list_sum_todo__item">
+          <p class="name_sum">Scope</p>
+          <p class="number" id="scope">0</p>
+        </li>
+        <li class="list_sum_todo__item">
+          <p class="name_sum">Active</p>
+          <p class="number" id="active">0</p>
+        </li>
+        <li class="list_sum_todo__item">
+          <p class="name_sum">Successful</p>
+          <p class="number" id="successful">0</p>
+        </li>
+      </ul>
 
-      .intro h1 {
-        margin-top: 0;
-        font-weight: 500;
-        font-size: 40px;
-      }
+    </header>
+    <button class="button_add_task_little " type="button">
+      <div class="plus">+</div>
+    </button>
 
-      .intro img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
-  </head>
+    <main class="list">
+      <ul class="list_toDo"></ul>
+      <button class="button_add_task_big" id="addButton" type="button"><span>+</span> Create new task</button>
+    </main>
+  </div>
 
-  <body>
-    <article class="intro">
-      <h1>Webpack starter kit</h1>
 
-      <!-- HTML image reference example. -->
-      <img src="./images/intro.png" alt="" width="640" />
-    </article>
-  </body>
+</body>
+
 </html>
