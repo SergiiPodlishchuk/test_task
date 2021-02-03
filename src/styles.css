@@ -192,3 +192,27 @@ color: #fff;
   cursor: pointer;
 }
 
+input label{
+  background-color: ;
+}
+
+input label:checked{
+  background-color: ;
+}
+
+textarea{
+  border: none;
+  resize: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #3F3F3F;
+ 
+  
+}
+
+.checked{
+ text-decoration: line-through;
+}

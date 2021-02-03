@@ -3,14 +3,17 @@ import './styles.css';
 const refs = {
   list_toDo: document.querySelector('.list_toDo'),
   addTaskButton: document.querySelector('#addButton'),
+  addTaskLittleButton: document.querySelector('#addButtonLittle'),
   scope: document.querySelector('#scope'),
   active: document.querySelector('#active'),
   successful: document.querySelector('#successful'),
 };
 
 refs.addTaskButton.addEventListener('click', addTask);
+refs.addTaskLittleButton.addEventListener('click', addTask);
 refs.list_toDo.addEventListener('click', deleteTask);
 refs.list_toDo.addEventListener('click', changeTask);
+refs.list_toDo.addEventListener('click', checkedListen);
 
 const tasksStorage = JSON.parse(localStorage.getItem('tasks'));
 if (tasksStorage === null) {
@@ -39,12 +42,16 @@ function renderList(tasks) {
                 <button class="delete__button" data-action="delete_task"></button>
             </div>
         </div>
-        <div class="toDo__text">
-              ${description}
-              <div class="inputDescription">
-                <input type="text" id="inputDescr" placeholder="${id} Please enter task description ">
-              </div>
-        </div>
+            <textarea name="descriptions" 
+             class="toDo__text ${checkTrue}"
+             id="text_desxr" 
+             cols="350" 
+             rows="1"
+             wrap="soft"
+             maxlength="100"
+             disabled
+             placeholder="Please enter your descriptions">${description}</textarea>
+      
         
     </li>`;
   });
@@ -74,7 +81,7 @@ function addTask() {
 
   const id = unicId ? random_id + 10 : random_id;
 
-  let description = 'Something';
+  let description = '';
   const checked = false;
   const task = { date, id, checked, description };
 
@@ -91,16 +98,47 @@ function addTask() {
 }
 
 function changeTask(e) {
-  console.log(e.target.value);
   const itemId_toChange = e.target.offsetParent.id;
+
   if (e.target.dataset.action === 'change_descr') {
-    const listAfterChange = JSON.parse(localStorage.getItem('tasks')).find(
+    const tasksList = JSON.parse(localStorage.getItem('tasks'));
+
+    const itemToChange = tasksList.find(
       ({ id }) => id === +itemId_toChange.slice(5),
     );
-    console.log(listAfterChange);
-    listAfterChange.description = 'egddsdsdsdfsefd';
-    // localStorage.setItem('tasks', JSON.stringify(listAfterDel));
-    // renderList(listAfterDel);
+    const index = tasksList.indexOf(itemToChange);
+    const texterea = e.target.offsetParent.children[1];
+    let value = texterea.value;
+
+    if (texterea.disabled === true) {
+      texterea.disabled = false;
+    } else if (texterea.disabled === false) {
+      itemToChange.description = value;
+      const changedList = [...tasksList];
+      changedList[index] = itemToChange;
+      localStorage.setItem('tasks', JSON.stringify(changedList));
+      renderList(changedList);
+      texterea.disabled === true;
+    }
+  }
+}
+
+function checkedListen(e) {
+  if (e.target.name === 'successful') {
+    const itemId_toChecked = e.target.offsetParent.id;
+    const tasksList = JSON.parse(localStorage.getItem('tasks'));
+    const checkedItem = tasksList.find(
+      ({ id }) => id === +itemId_toChecked.slice(5),
+    );
+    const index = tasksList.indexOf(checkedItem);
+    checkedItem.checked = e.target.checked;
+    const checkedList = [...tasksList];
+    checkedList[index] = checkedItem;
+    const texterea = e.target.offsetParent.children[1];
+    texterea.classList.add('deleteText');
+
+    localStorage.setItem('tasks', JSON.stringify(checkedList));
+    renderList(checkedList);
   }
 }
 
