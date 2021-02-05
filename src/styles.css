@@ -178,7 +178,7 @@ body {
 .item{
   margin: 0 auto;
   padding: 0;
-  /* width: 250px; */
+  width: 250px;
   border-bottom: 1px solid #C7C7C7;
   position: relative;
   padding-left: 35px;
@@ -290,9 +290,17 @@ textarea{
   .container{
   width: 768px;
   }
+  .item{
+    width: 700px;
+  }
   .number{
     font-size: 56px;
   }
+  .button_add_task_little{
+    left: 48%;
+  }
+
+
 }
 
 
@@ -300,10 +308,16 @@ textarea{
   .container{
     width: 1280px;
     }
+    .item{
+      width: 1200px;
+    }
 }
 
 @media screen and (min-width: 1280.1px) {
   .container{
     width: 1440px;
+    }
+    .item{
+      width: 1200px;
     }
 }

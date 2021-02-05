@@ -63,8 +63,6 @@ function renderList(tasks) {
   refs.scope.textContent = tasksSum;
   refs.successful.textContent = successfulTasks;
   refs.active.textContent = tasksSum - successfulTasks;
-
- 
 }
 
 function addTask() {
@@ -97,7 +95,7 @@ function addTask() {
 
   localStorage.setItem('tasks', JSON.stringify(list));
   renderList(list);
- 
+}
 
 function changeTask(e) {
   const itemId_toChange = e.target.offsetParent.id;
@@ -154,25 +152,3 @@ function deleteTask(e) {
     renderList(listAfterDel);
   }
 }
-
-// fetch('https://jsonplaceholder.typicode.com/posts')
-//   .then(response => response.json())
-//   .then(json => console.log(json));
-
-// function fetchData(obj_Task) {
-//   fetch('https://jsonplaceholder.typicode.com/posts', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       title: 'foo',
-//       body: 'bar',
-//       userId: 1,
-//     }),
-//     headers: {
-//       'Content-type': 'application/json; charset=UTF-8',
-//     },
-//   })
-//     .then(response => response.json())
-//     .then(json => console.log(json));
-// }
-
-// fetchData();
