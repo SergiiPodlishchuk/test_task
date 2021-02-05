@@ -1,0 +1,32 @@
+
+.header{
+    background: #889DEA;
+    margin-bottom: 72px;
+    height: 240px;
+  }
+  
+  .radius_left{
+    width: 100%;
+    height: 64px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 32px;
+    position: absolute;
+  }
+  .radius_right1{
+    width: 64px;
+    height: 128px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 180px;
+    right: 0;
+  }
+  
+  .radius_right2{
+    background-color: #889DEA;
+    width: 100%;
+    height: 64px;
+    border-radius: 32px;
+    position: absolute;
+    right: 0;
+    top: 145px;
+  }

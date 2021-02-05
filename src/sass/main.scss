@@ -1,0 +1,20 @@
+// fonts
+// @import 'fonts.scss';
+
+// helpers
+@import 'helpers/variablies.scss';
+@import 'helpers/placeholders.scss';
+// @import 'helpers/mixins.scss';
+
+// base
+// @import 'normalize.scss';
+@import 'base.scss';
+
+
+@import 'components/header_background.scss';
+@import 'components/button_add_task_big.scss';
+@import 'components/button_add_task_little.scss';
+@import 'components/list_sum_toDo.scss';
+@import 'components/list_toDo.scss';
+@import 'components/title_list_toDo.scss';
+

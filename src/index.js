@@ -1,3 +1,4 @@
+// import './sass/main.scss';
 import './styles.css';
 
 const refs = {
@@ -31,24 +32,23 @@ function renderList(tasks) {
     const checkTrue = checked ? 'checked' : '';
 
     return `
-    <li class="list_toDo_item" id=item_${id}>
-        <div class="menu_info">
-            <div class="date_check">
-                <input class="inputCheck" ${checkTrue} type="checkbox" name="successful" }>
-                <div class="dateNow">${date}</div>
+    <li class="item" id=item_${id}>
+        <div class="item__menu_info">
+            <div class="item_date_check">
+                <input class="item__check" ${checkTrue} type="checkbox" name="successful" }>
+                <div class="item__dateNow">${date}</div>
             </div>
             <div class="button_menu">
-                <button class="change__button" data-action="change_descr"></button>
-                <button class="delete__button" data-action="delete_task"></button>
+                <button class="item__changeButton" data-action="change_descr"></button>
+                <button class="item__deleteButton" data-action="delete_task"></button>
             </div>
         </div>
-            <textarea name="descriptions" 
-             class="toDo__text ${checkTrue}"
+         
+          <textarea name="descriptions" 
+             class="item__text ${checkTrue}"
              id="text_desxr" 
-             cols="350" 
-             rows="1"
+             cols="400" 
              wrap="soft"
-             maxlength="100"
              disabled
              placeholder="Please enter your descriptions">${description}</textarea>
       
@@ -63,6 +63,8 @@ function renderList(tasks) {
   refs.scope.textContent = tasksSum;
   refs.successful.textContent = successfulTasks;
   refs.active.textContent = tasksSum - successfulTasks;
+
+ 
 }
 
 function addTask() {
@@ -95,12 +97,13 @@ function addTask() {
 
   localStorage.setItem('tasks', JSON.stringify(list));
   renderList(list);
-}
+ 
 
 function changeTask(e) {
   const itemId_toChange = e.target.offsetParent.id;
 
   if (e.target.dataset.action === 'change_descr') {
+    e.target.classList.add('item__changeButton_OK');
     const tasksList = JSON.parse(localStorage.getItem('tasks'));
 
     const itemToChange = tasksList.find(
@@ -134,8 +137,6 @@ function checkedListen(e) {
     checkedItem.checked = e.target.checked;
     const checkedList = [...tasksList];
     checkedList[index] = checkedItem;
-    const texterea = e.target.offsetParent.children[1];
-    texterea.classList.add('deleteText');
 
     localStorage.setItem('tasks', JSON.stringify(checkedList));
     renderList(checkedList);
@@ -157,3 +158,21 @@ function deleteTask(e) {
 // fetch('https://jsonplaceholder.typicode.com/posts')
 //   .then(response => response.json())
 //   .then(json => console.log(json));
+
+// function fetchData(obj_Task) {
+//   fetch('https://jsonplaceholder.typicode.com/posts', {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       title: 'foo',
+//       body: 'bar',
+//       userId: 1,
+//     }),
+//     headers: {
+//       'Content-type': 'application/json; charset=UTF-8',
+//     },
+//   })
+//     .then(response => response.json())
+//     .then(json => console.log(json));
+// }
+
+// fetchData();

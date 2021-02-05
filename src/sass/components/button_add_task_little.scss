@@ -1,0 +1,20 @@
+.button_add_task_little{
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: #88EAA9;
+    border: none;
+    border-radius: 11px;
+    transform: rotate(45deg); 
+    cursor: pointer;
+    position: absolute;
+    left: 47%;
+    top: 186px;
+  }
+  
+  .plus{
+    color: #fff;
+    transform: rotate(45deg); 
+    font-size: 40px;
+    font-weight: 100;
+  }

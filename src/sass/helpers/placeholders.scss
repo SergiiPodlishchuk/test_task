@@ -1,0 +1,21 @@
+// %dump-marg-padd {
+//   margin: 0px;
+//   padding: 0px;
+// }
+
+// %list {
+//   @extend %dump-marg-padd;
+//   list-style: none;
+// }
+
+// %link {
+//   display: block;
+//   text-decoration: none;
+// }
+
+// %title-line {
+//   content: "";
+//   background-color: $title-line-color;
+//   position: absolute;
+//   top: 50%;
+// }

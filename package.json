@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/SergiiPodlishchuk/test_task",
   "scripts": {
     "start": "webpack-dev-server --env.mode development --config ./webpack/config.js",
     "build": "webpack --env.mode production --config ./webpack/config.js",
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/SergiiPodlishchuk/test_task/issues"
   },
-  "homepage": "https://github.com/SergiiPodlishchuk/test_task#readme",
+  
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
